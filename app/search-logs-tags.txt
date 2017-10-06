@@ -99,3 +99,6 @@ temporal logic
 temporal logic
 temporal logic
 logic
+logic
+logic
+artificial intelligence

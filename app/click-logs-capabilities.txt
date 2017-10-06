@@ -1,2 +1,3 @@
 query, clicked tag, clicked tag id
 logic, dynamic epistemic logic, 59645
+artificial intelligence, data mining, 17049
