@@ -1,0 +1,5 @@
+query, academic, academic id
+temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
+temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
+temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
+temporal logic, A/Prof Mark Reynolds, 0e712a453fb34ddeb6faa8c20efede54
