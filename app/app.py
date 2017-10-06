@@ -14,7 +14,7 @@ acaddir = 'data'
 
 @app.route("/")
 def index():
-    return jsonify({"Greeting": "Hello, world"})
+    return "<h2>Academic Relevance Web Service</h2>"
 
 @app.route("/<int:value>")
 def multiply(value):
@@ -90,7 +90,7 @@ def search_tag(query):
                 acadRel[academic]['freq'] += data['freq']
             except:
                 acadRel[academic] = {'freq': data['freq'], 'id': data['id']}
-    acadRel = [(k, v['freq'], v['id'], {x[0]: tag2idx[x[0]] for x in toptags[k]}) for k, v in acadRel.iteritems()] 
+    acadRel = [(k, v['freq'], v['id'], {x[0]: tag2idx[x[0]] for x in toptags[k]}) for k, v in acadRel.iteritems()]
     acadRel = sorted(acadRel, key=lambda x : x[1], reverse=True)
     data = []
     for name, freq, _id, top_tags in acadRel[:20]:
@@ -120,7 +120,7 @@ def tag_page(id):
 def capability_click():
     try:
         with open('../{}/tags.json'.format(indir), 'r') as f:
-            tags = json.load(f) 
+            tags = json.load(f)
         req = request.get_json()
         print req
         with open('click-logs-capabilities.txt', 'a') as f:
@@ -134,7 +134,7 @@ def capability_click():
 def academic_click():
     try:
         with open('../{}/academic-ids.json'.format(indir), 'r') as f:
-            acads = json.load(f) 
+            acads = json.load(f)
         req = request.get_json()
         with open('click-logs-academics.txt', 'a') as f:
             f.write('\n{}, {}, {}'.format(req['query'], req['academic'], req['academicId']))
