@@ -58,18 +58,17 @@ def academic_page(uuid):
         tags2idx = json.load(f)
     name = tags2acads[uuid]['Name']
     tags = acads[name]['tags']
-    out = ['<h4>{}</h4><ul>'.format(name)]
     tag_freqs = []
     for tag, freq in tags.iteritems():
         try:
             tag_freqs.append((tag, freq, tags2idx[tag]))
         except:
-            pass 
+            pass
     tag_freqs.sort(key = lambda tup : tup[1], reverse=True)
     data = []
     for tag, freq, tag_idx in tag_freqs:
         data.append({'tag': tag, 'freq': freq, 'tag-id': tag_idx})
-    return jsonify({'data': data, 'name': name})
+    return jsonify({'data': data, 'name': name, 'url': tags2acads[uuid]['socUrl']})
 
 @app.route('/search/tag/<string:query>')
 def search_tag(query):
