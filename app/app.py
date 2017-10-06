@@ -41,8 +41,11 @@ def academic(academic):
     names = filter(lambda x: query.lower() in x[0].lower(), acads)
     data = []
     for name, _id in names:
-        acadTopTags = {x: tags[x] for (x, _) in toptags[name]}
-        data.append({'name': name, 'id': _id, 'top tags': acadTopTags})
+        try:
+            acadTopTags = {x: tags[x] for (x, _) in toptags[name]}
+            data.append({'name': name, 'id': _id, 'top tags': acadTopTags})
+        except:
+            pass
     return jsonify({'data': data})
 
 @app.route('/academics/<string:uuid>')
@@ -58,7 +61,10 @@ def academic_page(uuid):
     out = ['<h4>{}</h4><ul>'.format(name)]
     tag_freqs = []
     for tag, freq in tags.iteritems():
-        tag_freqs.append((tag, freq, tags2idx[tag]))
+        try:
+            tag_freqs.append((tag, freq, tags2idx[tag]))
+        except:
+            pass 
     tag_freqs.sort(key = lambda tup : tup[1], reverse=True)
     data = []
     for tag, freq, tag_idx in tag_freqs:
