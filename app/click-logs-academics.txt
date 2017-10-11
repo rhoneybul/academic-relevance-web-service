@@ -3,3 +3,11 @@ temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
 temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
 temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
 temporal logic, A/Prof Mark Reynolds, 0e712a453fb34ddeb6faa8c20efede54
+temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
+deep learning, Prof Mohammed Bennamoun, eb69c98e7dbd4ebdb5362ceae85c15a6
+temporal logic, Dr Tim French, b328c7267d294ba9b5c1023ce6f2d766
+deep learning, Prof Mohammed Bennamoun, eb69c98e7dbd4ebdb5362ceae85c15a6
+
+computer vision, Prof Lyle Noakes, 396ef3ed9f7b4deb8a5de6a228bfe6a4
+lie group, Prof Lyle Noakes, 396ef3ed9f7b4deb8a5de6a228bfe6a4
+dynamical systems, Prof Michael Small, 8839a2dc2d2f4b7ab1f36a15de4868b7
