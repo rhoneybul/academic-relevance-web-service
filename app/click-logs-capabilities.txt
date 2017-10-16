@@ -1,3 +1,8 @@
 query, clicked tag, clicked tag id
 logic, dynamic epistemic logic, 59645
 artificial intelligence, data mining, 17049
+data mining, search engines, 22902
+databases, algorithms, 27224
+xml, xml data, 31145
+logic, depression, 33290
+computer vision, algorithms, 27224
