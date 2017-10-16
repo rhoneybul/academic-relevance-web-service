@@ -113,7 +113,7 @@ def tag_page(id):
         acadids = json.load(f)
     idx2tag = {v: k for k, v in tags.iteritems()}
     tag_text = idx2tag[id]
-    tag = tags2acads[tag_text]:
+    tag = tags2acads[tag_text]
     tag2acad = [(name, acad['freq'], acadids[name]) for (name, acad) in tag.iteritems()]
     tag2acad.sort(key = lambda tup : tup[1], reverse=True)
     data = []
