@@ -49,3 +49,5 @@ whitefly
 africa
 afric
 africa
+artificial
+mining
