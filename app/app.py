@@ -24,7 +24,7 @@ def multiply(value):
 def academic(academic):
     with open("../{}/academics-tags.json".format(indir), "r") as f:
         acads = json.load(f)
-    with open('../{}/academics.json'.format(acaddir), 'r') as f:
+    with open('../{}/academics-schools.json'.format(acaddir), 'r') as f:
         academics = json.load(f)
     with open('../{}/tags.json'.format(indir), 'r') as f:
         tags = json.load(f)
@@ -43,7 +43,7 @@ def academic(academic):
     for name, _id in names:
         try:
             acadTopTags = {x: tags[x] for (x, _) in toptags[name]}
-            data.append({'name': name, 'id': _id, 'top tags': acadTopTags})
+            data.append({'name': name, 'id': _id, 'top tags': acadTopTags, 'school': academics[_id]['school']})
         except:
             pass
     return jsonify({'data': data})
@@ -52,11 +52,12 @@ def academic(academic):
 def academic_page(uuid):
     with open("../{}/academics-tags.json".format(indir), "r") as f:
         acads = json.load(f)
-    with open("../{}/academics.json".format(acaddir), "r") as f:
+    with open("../{}/academics-schools.json".format(acaddir), "r") as f:
         tags2acads = json.load(f)
     with open('../{}/tags.json'.format(indir), 'r') as f:
         tags2idx = json.load(f)
     name = tags2acads[uuid]['Name']
+    school = tags2acads[uuid]['school']
     tags = acads[name]['tags']
     tag_freqs = []
     for tag, freq in tags.iteritems():
@@ -68,7 +69,7 @@ def academic_page(uuid):
     data = []
     for tag, freq, tag_idx in tag_freqs:
         data.append({'tag': tag, 'freq': freq, 'tag-id': tag_idx})
-    return jsonify({'data': data, 'name': name, 'url': tags2acads[uuid]['socUrl']})
+    return jsonify({'data': data, 'name': name, 'url': tags2acads[uuid]['socUrl'], 'school': school})
 
 @app.route('/search/tag/<string:query>')
 def search_tag(query):
