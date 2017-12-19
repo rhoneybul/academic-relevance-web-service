@@ -77,6 +77,8 @@ def search_tag(query):
         tags = json.load(f)
     with open('../{}/tags2academics.json'.format(indir), 'r') as f:
         tags2acads = json.load(f)
+    with open('../data/academics-schools.json'.format(indir), 'r') as f:
+        acads = json.load(f)
     with open('../{}/top-tags.json'.format(indir), 'r') as f:
         toptags = json.load(f)
     tag2idx = tags
@@ -96,11 +98,12 @@ def search_tag(query):
                 acadRel[academic]['freq'] += data['freq']
             except:
                 acadRel[academic] = {'freq': data['freq'], 'id': data['id']}
-    acadRel = [(k, v['freq'], v['id'], {x[0]: tag2idx[x[0]] for x in toptags[k]}) for k, v in acadRel.iteritems()]
+    acadRel = [(k, v['freq'], v['id'], {x[0]: tag2idx[x[0]] for x in toptags[k]}, acads[v['id']]['school']) for k, v in acadRel.iteritems()]
     acadRel = sorted(acadRel, key=lambda x : x[1], reverse=True)
     data = []
-    for name, freq, _id, top_tags in acadRel:
-        data.append({'name': name, 'freq': freq, 'id': _id, 'top tags': top_tags})
+    print acadRel
+    for name, freq, _id, top_tags, school in acadRel:
+        data.append({'name': name, 'freq': freq, 'id': _id, 'top tags': top_tags, 'school': school})
     return jsonify({'data': data})
 
 
