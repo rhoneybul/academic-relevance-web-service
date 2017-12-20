@@ -101,7 +101,6 @@ def search_tag(query):
     acadRel = [(k, v['freq'], v['id'], {x[0]: tag2idx[x[0]] for x in toptags[k]}, acads[v['id']]['school']) for k, v in acadRel.iteritems()]
     acadRel = sorted(acadRel, key=lambda x : x[1], reverse=True)
     data = []
-    print acadRel
     for name, freq, _id, top_tags, school in acadRel:
         data.append({'name': name, 'freq': freq, 'id': _id, 'top tags': top_tags, 'school': school})
     return jsonify({'data': data})
@@ -115,6 +114,8 @@ def tag_page(id):
         tags = json.load(f)
     with open('../{}/academic-ids.json'.format(indir), 'r') as f:
         acadids = json.load(f)
+    with open('../data/academics-schools.json'.format(indir), 'r') as f:
+        acads = json.load(f)
     idx2tag = {v: k for k, v in tags.iteritems()}
     tag_text = idx2tag[id]
     tag = tags2acads[tag_text]
@@ -122,7 +123,7 @@ def tag_page(id):
     tag2acad.sort(key = lambda tup : tup[1], reverse=True)
     data = []
     for name, freq, _id in tag2acad:
-        data.append({'name': name, 'id': _id, 'freq':freq})
+        data.append({'name': name, 'id': _id, 'freq':freq, 'school': acads[_id]['school']})
     return jsonify({'data': data, 'tag': tag_text})
 
 @app.route('/path/capability', methods=['POST'])
